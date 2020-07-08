@@ -26,5 +26,12 @@ namespace prjIAAI.Controllers
 
             return View();
         }
+
+        public ActionResult json()
+        {
+            //return File(@"C:\Users\User\Desktop\ForFun\162160.jpg", "image/jpeg","seal.jpg");
+
+            return RedirectToAction("Index");
+        }
     }
 }
