@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -121,10 +129,95 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdministrationsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007080706070_IndsertNews.cs" />
+    <Compile Include="Migrations\202007080706070_IndsertNews.Designer.cs">
+      <DependentUpon>202007080706070_IndsertNews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007080818447_EditNews.cs" />
+    <Compile Include="Migrations\202007080818447_EditNews.Designer.cs">
+      <DependentUpon>202007080818447_EditNews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007080821309_EditNewsToptoSticky.cs" />
+    <Compile Include="Migrations\202007080821309_EditNewsToptoSticky.Designer.cs">
+      <DependentUpon>202007080821309_EditNewsToptoSticky.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007080822598_EditContentToNewsContent.cs" />
+    <Compile Include="Migrations\202007080822598_EditContentToNewsContent.Designer.cs">
+      <DependentUpon>202007080822598_EditContentToNewsContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007080827464_EditPostDate.cs" />
+    <Compile Include="Migrations\202007080827464_EditPostDate.Designer.cs">
+      <DependentUpon>202007080827464_EditPostDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007080841029_InsertArticle.cs" />
+    <Compile Include="Migrations\202007080841029_InsertArticle.Designer.cs">
+      <DependentUpon>202007080841029_InsertArticle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007080905294_InsertLink.cs" />
+    <Compile Include="Migrations\202007080905294_InsertLink.Designer.cs">
+      <DependentUpon>202007080905294_InsertLink.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007090321184_AddAdmin.cs" />
+    <Compile Include="Migrations\202007090321184_AddAdmin.Designer.cs">
+      <DependentUpon>202007090321184_AddAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007090341197_AddExpert.cs" />
+    <Compile Include="Migrations\202007090341197_AddExpert.Designer.cs">
+      <DependentUpon>202007090341197_AddExpert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007090348221_AddKnowledge.cs" />
+    <Compile Include="Migrations\202007090348221_AddKnowledge.Designer.cs">
+      <DependentUpon>202007090348221_AddKnowledge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007090418304_AddContact.cs" />
+    <Compile Include="Migrations\202007090418304_AddContact.Designer.cs">
+      <DependentUpon>202007090418304_AddContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007090613165_AddIndexImage.cs" />
+    <Compile Include="Migrations\202007090613165_AddIndexImage.Designer.cs">
+      <DependentUpon>202007090613165_AddIndexImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007090810260_AddMember.cs" />
+    <Compile Include="Migrations\202007090810260_AddMember.Designer.cs">
+      <DependentUpon>202007090810260_AddMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007090819552_EditMemberVerify.cs" />
+    <Compile Include="Migrations\202007090819552_EditMemberVerify.Designer.cs">
+      <DependentUpon>202007090819552_EditMemberVerify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007090823023_EditMember.cs" />
+    <Compile Include="Migrations\202007090823023_EditMember.Designer.cs">
+      <DependentUpon>202007090823023_EditMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007100746321_editAdminName.cs" />
+    <Compile Include="Migrations\202007100746321_editAdminName.Designer.cs">
+      <DependentUpon>202007100746321_editAdminName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007100803159_editAdministration.cs" />
+    <Compile Include="Migrations\202007100803159_editAdministration.Designer.cs">
+      <DependentUpon>202007100803159_editAdministration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Administration.cs" />
+    <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\EnumList.cs" />
+    <Compile Include="Models\Expert.cs" />
+    <Compile Include="Models\IndexImage.cs" />
+    <Compile Include="Models\Knowledge.cs" />
+    <Compile Include="Models\Links.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Permission.cs" />
+    <Compile Include="Models\Utility.cs" />
+    <Compile Include="Models\ViewLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +232,15 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrations\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrations\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrations\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrations\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrations\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrations\Login.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -168,10 +270,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -185,6 +284,59 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202007080706070_IndsertNews.resx">
+      <DependentUpon>202007080706070_IndsertNews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007080818447_EditNews.resx">
+      <DependentUpon>202007080818447_EditNews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007080821309_EditNewsToptoSticky.resx">
+      <DependentUpon>202007080821309_EditNewsToptoSticky.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007080822598_EditContentToNewsContent.resx">
+      <DependentUpon>202007080822598_EditContentToNewsContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007080827464_EditPostDate.resx">
+      <DependentUpon>202007080827464_EditPostDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007080841029_InsertArticle.resx">
+      <DependentUpon>202007080841029_InsertArticle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007080905294_InsertLink.resx">
+      <DependentUpon>202007080905294_InsertLink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007090321184_AddAdmin.resx">
+      <DependentUpon>202007090321184_AddAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007090341197_AddExpert.resx">
+      <DependentUpon>202007090341197_AddExpert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007090348221_AddKnowledge.resx">
+      <DependentUpon>202007090348221_AddKnowledge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007090418304_AddContact.resx">
+      <DependentUpon>202007090418304_AddContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007090613165_AddIndexImage.resx">
+      <DependentUpon>202007090613165_AddIndexImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007090810260_AddMember.resx">
+      <DependentUpon>202007090810260_AddMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007090819552_EditMemberVerify.resx">
+      <DependentUpon>202007090819552_EditMemberVerify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007090823023_EditMember.resx">
+      <DependentUpon>202007090823023_EditMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007100746321_editAdminName.resx">
+      <DependentUpon>202007100746321_editAdminName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007100803159_editAdministration.resx">
+      <DependentUpon>202007100803159_editAdministration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
