@@ -7,7 +7,6 @@
     <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- styles -->
     <link href="~/css/styles.css" rel="stylesheet">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,11 +17,11 @@
 <body>
     <div class="header" style="display: flex; justify-content: space-between; align-items: center;padding:5px ">
         <div class="logo">
-            <h1><a href="index.html"><i class="glyphicon glyphicon-home" style="padding-right: 50px"></i>Bootstrap Admin Theme</a></h1>
+            <h1><a href="@Url.Action("index","Home")"><i class="glyphicon glyphicon-home" style="padding-right: 50px"></i>國際縱火調查人員協會-台灣分會網站管理系統</a></h1>
         </div>
         <div>
             <span class="input-group-btn">
-                @using (Html.BeginForm("LogOff", "Administrations", FormMethod.Post))
+                @using (Html.BeginForm("LogOff", "Home", FormMethod.Post))
                 {
                     <input type="submit" value="登出" class="btn btn-primary" />
                 }
@@ -54,6 +53,8 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="~/bootstrap/js/bootstrap.min.js"></script>
         <script src="~/js/custom.js"></script>
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/bdfc4d514c.js" crossorigin="anonymous"></script>
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
     </div>

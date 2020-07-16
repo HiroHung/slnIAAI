@@ -129,9 +129,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AdministrationsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ArticlesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MembersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filters\PermissionFilters.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,16 +206,47 @@
     <Compile Include="Migrations\202007100803159_editAdministration.Designer.cs">
       <DependentUpon>202007100803159_editAdministration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007130319416_AddGroup.cs" />
+    <Compile Include="Migrations\202007130319416_AddGroup.Designer.cs">
+      <DependentUpon>202007130319416_AddGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007130535448_AddPermissions.cs" />
+    <Compile Include="Migrations\202007130535448_AddPermissions.Designer.cs">
+      <DependentUpon>202007130535448_AddPermissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007130700394_addForum.cs" />
+    <Compile Include="Migrations\202007130700394_addForum.Designer.cs">
+      <DependentUpon>202007130700394_addForum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007130718205_delAdminPermission.cs" />
+    <Compile Include="Migrations\202007130718205_delAdminPermission.Designer.cs">
+      <DependentUpon>202007130718205_delAdminPermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007150615219_EditAdministratorToMemberMemberToCustomer.cs" />
+    <Compile Include="Migrations\202007150615219_EditAdministratorToMemberMemberToCustomer.Designer.cs">
+      <DependentUpon>202007150615219_EditAdministratorToMemberMemberToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007150616383_FKRoleAndMember.cs" />
+    <Compile Include="Migrations\202007150616383_FKRoleAndMember.Designer.cs">
+      <DependentUpon>202007150616383_FKRoleAndMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007150941346_editPermission.cs" />
+    <Compile Include="Migrations\202007150941346_editPermission.Designer.cs">
+      <DependentUpon>202007150941346_editPermission.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Administration.cs" />
+    <Compile Include="Models\Member.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\EnumList.cs" />
     <Compile Include="Models\Expert.cs" />
+    <Compile Include="Models\ForumPost.cs" />
+    <Compile Include="Models\ForumReply.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\IndexImage.cs" />
     <Compile Include="Models\Knowledge.cs" />
     <Compile Include="Models\Links.cs" />
-    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Permission.cs" />
@@ -235,12 +269,22 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Administrations\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Administrations\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Administrations\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Administrations\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Administrations\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Administrations\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Members\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Members\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Members\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Members\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Members\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -336,6 +380,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007100803159_editAdministration.resx">
       <DependentUpon>202007100803159_editAdministration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007130319416_AddGroup.resx">
+      <DependentUpon>202007130319416_AddGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007130535448_AddPermissions.resx">
+      <DependentUpon>202007130535448_AddPermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007130700394_addForum.resx">
+      <DependentUpon>202007130700394_addForum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007130718205_delAdminPermission.resx">
+      <DependentUpon>202007130718205_delAdminPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007150615219_EditAdministratorToMemberMemberToCustomer.resx">
+      <DependentUpon>202007150615219_EditAdministratorToMemberMemberToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007150616383_FKRoleAndMember.resx">
+      <DependentUpon>202007150616383_FKRoleAndMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007150941346_editPermission.resx">
+      <DependentUpon>202007150941346_editPermission.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -41,5 +41,8 @@ namespace prjIAAI.Models
         [Display(Name = "圖示")]
         [MaxLength(length: 200)]
         public string icon { get; set; }
+
+        [Display(Name = "側邊欄顯示")]
+        public string ControlName { get; set; }
     }
 }
