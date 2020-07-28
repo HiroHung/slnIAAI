@@ -20,6 +20,7 @@ namespace prjIAAI.Models
         public string Account { set; get; }
 
         [StringLength(100, ErrorMessage = "{0}長度至少必須為{2}個字", MinimumLength = 4)]
+        [DataType(DataType.Password)]
         [Required(ErrorMessage = "{0}必填")]
         [Display(Name = "密碼")]
         public string Password { set; get; }

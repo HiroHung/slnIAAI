@@ -1,13 +1,14 @@
-﻿@model prjIAAI.Models.Member
+﻿@using Microsoft.Ajax.Utilities
+@model prjIAAI.Models.Member
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>詳細資料</h2>
 
 <div>
-    <h4>Member</h4>
+    <h4>系統管理者</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -24,22 +25,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Account)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PasswordSalt)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PasswordSalt)
         </dd>
 
         <dt>
@@ -71,7 +56,16 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Photo)
+            @{
+                if (Model.Photo.IsNullOrWhiteSpace())
+                {
+                    <img src="~/images/defaultPhoto.png" />
+                }
+                else
+                {
+                    <img src="~/FileUploads/mini@(Model.Photo)">
+                }
+            }
         </dd>
 
         <dt>
@@ -81,10 +75,25 @@
         <dd>
             @Html.DisplayFor(model => model.JobTitle)
         </dd>
-
+        
+        <dt>
+            角色
+        </dt>
+        
+        <dd>
+            @* 取與Member關聯的Roles，再取出GroupName放入<td>中 *@
+            @{
+                string groupName = "";
+                foreach (var role in Model.Roles)
+                {
+                    groupName += role.GroupName + "、";
+                }
+            }
+            @groupName.TrimEnd('、')
+        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("編輯", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("回到列表", "Index")
 </p>

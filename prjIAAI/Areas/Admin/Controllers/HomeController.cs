@@ -38,10 +38,10 @@ namespace prjIAAI.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                Member administration = ValidateUser(viewLogin.Account, viewLogin.Password);
-                if (administration != null)
+                Member member = ValidateUser(viewLogin.Account, viewLogin.Password);
+                if (member != null)
                 {
-                    string userData = JsonConvert.SerializeObject(administration);
+                    string userData = JsonConvert.SerializeObject(member);
                     Utility.SetAuthenTicket(userData, viewLogin.Account);
                     return RedirectToAction("Index", "Home");
                 }
@@ -70,6 +70,11 @@ namespace prjIAAI.Areas.Admin.Controllers
             FormsAuthentication.SignOut();
             Session.Abandon();
             return Redirect(FormsAuthentication.LoginUrl);
+        }
+
+        public ActionResult SizeError()
+        {
+            return View();
         }
     }
 }
