@@ -21,12 +21,6 @@
             @Html.DisplayNameFor(model => model.NewsContent)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PostDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Publisher)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Image)
         </th>
         <th>
@@ -37,6 +31,18 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Clicks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poster)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InitDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updater)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
         </th>
         <th></th>
     </tr>
@@ -53,12 +59,6 @@
             @Html.DisplayFor(modelItem => item.NewsContent)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PostDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Publisher)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Image)
         </td>
         <td>
@@ -69,6 +69,18 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Clicks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Poster)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InitDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updater)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateDate)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

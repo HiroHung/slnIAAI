@@ -49,7 +49,7 @@ namespace prjIAAI.Areas.Admin.Controllers
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Image,LinkUrl,Display,Sort")] IndexImage indexImage)
+        public ActionResult Create([Bind(Include = "Id,Title,Image,LinkUrl,Display,Sort,Poster,InitDate,Updater,UpdateDate")] IndexImage indexImage)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace prjIAAI.Areas.Admin.Controllers
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Image,LinkUrl,Display,Sort")] IndexImage indexImage)
+        public ActionResult Edit([Bind(Include = "Id,Title,Image,LinkUrl,Display,Sort,Poster,InitDate,Updater,UpdateDate")] IndexImage indexImage)
         {
             if (ModelState.IsValid)
             {

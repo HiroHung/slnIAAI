@@ -7,7 +7,7 @@ using System.Web;
 
 namespace prjIAAI.Models
 {
-    public class ForumPost
+    public class ForumPost:BackendBase
     {
         [Key]
         [Display(Name = "編號")]
@@ -19,13 +19,11 @@ namespace prjIAAI.Models
         [Display(Name = "標題")]
         public string Title { set; get; }
 
-        [Display(Name = "內容")] public string PostContent { set; get; }
+        [Display(Name = "內容")] 
+        public string PostContent { set; get; }
 
-        [Display(Name = "發布時間")] public DateTime? PostDate { set; get; }
-
-        [Display(Name = "發布者")] public string Publisher { set; get; }
-
-        [Display(Name = "點閱數")] public int? Clicks { set; get; }
+        [Display(Name = "點閱數")] 
+        public int? Clicks { set; get; }
 
         public virtual ICollection<ForumReply> ForumReplies { set; get; }
     }

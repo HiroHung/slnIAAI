@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace prjIAAI.Models
 {
-    public class Role
+    public class Role:BackendBase
     {
         //避免ADD時出錯
         //public Role()

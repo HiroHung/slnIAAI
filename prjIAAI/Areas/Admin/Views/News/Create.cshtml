@@ -6,11 +6,10 @@
 
 <h2>Create</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>News</h4>
         <hr />
@@ -34,31 +33,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NewsContent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NewsContent, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model=>model.NewsContent,htmlAttributes: new {@class="form-control ckeditor"})
                 @Html.ValidationMessageFor(model => model.NewsContent, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PostDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PostDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PostDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Publisher, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Publisher, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Publisher, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", type = "file", accept = "image.*", onchange = "onLoadBinaryFile()" } })
+                <img id="preImg" src="~/images/defaultPhoto.png" height="300px" />
                 @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -79,26 +63,79 @@
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.Clicks, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Clicks, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Clicks, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Poster, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Poster, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Poster, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.InitDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.InitDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.InitDate, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Updater, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Updater, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Updater, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.UpdateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UpdateDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UpdateDate, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="新增" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("回到列表", "Index")
 </div>
+@section scripts{
+    <script type="text/javascript">
+        //預覽圖片的JS
+        function onLoadBinaryFile() {
+            var theFile = document.getElementById("Image");
+            // 確定選取了一個二進位檔案，而非其他格式。
+            if (theFile.files.length != 0 && theFile.files[0].type.match(/image.*/)) {
+                var reader = new FileReader();
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+                reader.onload = function (e) {
+                    var theImg = document.getElementById("preImg");
+                    theImg.src = e.target.result;
+                };
+                reader.onerror = function (e) {
+                    alert("例外狀況，無法讀取圖檔");
+                };
+                // 讀取二進位檔案。
+                reader.readAsDataURL(theFile.files[0]);
+            }
+            else {
+                alert("請選取一個圖片類型檔案");
+            }
+        }
+    </script>
 }

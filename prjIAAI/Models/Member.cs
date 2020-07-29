@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace prjIAAI.Models
 {
-    public class Member
+    public class Member:BackendBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

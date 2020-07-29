@@ -7,7 +7,7 @@ using System.Web;
 
 namespace prjIAAI.Models
 {
-    public class News
+    public class News: BackendBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -16,24 +16,18 @@ namespace prjIAAI.Models
 
         [Required(ErrorMessage = "{0}必填")]
         [MaxLength(length: 50)]
-        [Display(Name = "名稱")]
+        [Display(Name = "消息名稱")]
         public string Title { set; get; }
 
         [Required(ErrorMessage = "{0}必填")]
         [StringLength(60,ErrorMessage = "簡介不可超過 60 字元")]
-        [Display(Name = "簡介")]
+        [Display(Name = "消息簡述")]
         public string Introduction { set; get; }
 
         [Display(Name = "內容")]
         public string NewsContent { set; get; }
 
-        [Display(Name = "發布時間")]
-        public DateTime? PostDate { set; get; }
-
-        [Display(Name = "發布者")]
-        public string Publisher { set; get; }
-
-        [Display(Name = "圖片")]
+        [Display(Name = "標題圖片")]
         public string Image { set; get; }
 
         [Required(ErrorMessage = "請選擇{0}")]

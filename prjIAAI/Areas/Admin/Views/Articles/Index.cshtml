@@ -18,16 +18,16 @@
             @Html.DisplayNameFor(model => model.ArticleContent)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PostDate)
+            @Html.DisplayNameFor(model => model.Poster)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Publisher)
+            @Html.DisplayNameFor(model => model.InitDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EditDate)
+            @Html.DisplayNameFor(model => model.Updater)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Editor)
+            @Html.DisplayNameFor(model => model.UpdateDate)
         </th>
         <th></th>
     </tr>
@@ -41,16 +41,16 @@
             @Html.DisplayFor(modelItem => item.ArticleContent)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PostDate)
+            @Html.DisplayFor(modelItem => item.Poster)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Publisher)
+            @Html.DisplayFor(modelItem => item.InitDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EditDate)
+            @Html.DisplayFor(modelItem => item.Updater)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Editor)
+            @Html.DisplayFor(modelItem => item.UpdateDate)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace prjIAAI.Models
 {
-    public class Article
+    public class Article:BackendBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -21,17 +21,5 @@ namespace prjIAAI.Models
 
         [Display(Name = "內容")]
         public string ArticleContent { set; get; }
-
-        [Display(Name = "發布時間")]
-        public DateTime? PostDate { set; get; }
-
-        [Display(Name = "發布者")]
-        public string Publisher { set; get; }
-
-        [Display(Name = "更新時間")]
-        public DateTime? EditDate { set; get; }
-
-        [Display(Name = "更新者")]
-        public string Editor { set; get; }
     }
 }

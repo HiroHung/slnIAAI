@@ -7,7 +7,7 @@ using System.Web;
 
 namespace prjIAAI.Models
 {
-    public class Expert
+    public class Expert:BackendBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

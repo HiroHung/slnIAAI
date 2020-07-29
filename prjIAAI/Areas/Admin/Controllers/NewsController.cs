@@ -49,10 +49,11 @@ namespace prjIAAI.Areas.Admin.Controllers
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Introduction,NewsContent,PostDate,Publisher,Image,Sticky,Highlight,Clicks")] News news)
+        public ActionResult Create([Bind(Include = "Id,Title,Introduction,NewsContent,Image,Sticky,Highlight,Clicks,Poster,InitDate,Updater,UpdateDate")] News news)
         {
             if (ModelState.IsValid)
             {
+
                 db.Newses.Add(news);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -81,7 +82,7 @@ namespace prjIAAI.Areas.Admin.Controllers
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Introduction,NewsContent,PostDate,Publisher,Image,Sticky,Highlight,Clicks")] News news)
+        public ActionResult Edit([Bind(Include = "Id,Title,Introduction,NewsContent,Image,Sticky,Highlight,Clicks,Poster,InitDate,Updater,UpdateDate")] News news)
         {
             if (ModelState.IsValid)
             {

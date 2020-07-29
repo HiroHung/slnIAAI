@@ -7,7 +7,7 @@ using System.Web;
 
 namespace prjIAAI.Models
 {
-    public class IndexImage
+    public class IndexImage:BackendBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

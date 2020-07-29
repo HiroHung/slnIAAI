@@ -7,7 +7,7 @@ using System.Web;
 
 namespace prjIAAI.Models
 {
-    public class ForumReply
+    public class ForumReply:BackendBase
     {
         [Key]
         [Display(Name = "編號")]
@@ -16,12 +16,6 @@ namespace prjIAAI.Models
 
         [Display(Name = "回復內容")]
         public string ReplyContent { set; get; }
-
-        [Display(Name = "發布時間")]
-        public DateTime? ReplyDate { set; get; }
-
-        [Display(Name = "發布者")]
-        public string ReplyPublisher { set; get; }
 
         public int PostId { set; get; }
         [ForeignKey("PostId")]

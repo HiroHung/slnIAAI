@@ -17,9 +17,11 @@
 <body>
     <div class="header" style="display: flex; justify-content: space-between; align-items: center;padding:5px ">
         <div class="logo">
-            <h1><a href="@Url.Action("index", "Home")">
-                <i class="glyphicon glyphicon-home" style="padding-right: 50px"></i>國際縱火調查人員協會-台灣分會網站管理系統
-            </a></h1>
+            <h1>
+                <a href="@Url.Action("index", "Home")">
+                    <i class="glyphicon glyphicon-home" style="padding-right: 50px"></i>國際縱火調查人員協會-台灣分會網站管理系統
+                </a>
+            </h1>
         </div>
         <div>
             <span class="input-group-btn">
@@ -30,9 +32,8 @@
             </span>
         </div>
     </div>
-
     <div class="page-content">
-        <div class="row">
+        <div class="row" style="min-height:calc(100vh - 15.5rem)">
             <div class="col-md-2">
                 <div class="sidebar content-box" style="display: block;">
                     @Html.Raw(ViewBag.side)
@@ -42,23 +43,24 @@
                 @RenderBody()
             </div>
         </div>
-        <footer style="position: fixed;width: 100%">
-            <div class="container">
-                <div class="copy text-center">
-                    Copyright 2014 <a href='#'>Website</a>
-                </div>
-            </div>
-        </footer>
-
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="~/bootstrap/js/bootstrap.min.js"></script>
-        <script src="~/js/custom.js"></script>
-        <!-- Font Awesome -->
-        <script src="https://kit.fontawesome.com/bdfc4d514c.js" crossorigin="anonymous"></script>
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
     </div>
+    <footer>
+        <div class="container">
+            <div class="copy text-center">
+                Copyright 2014 <a href='#'>Website</a>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/bdfc4d514c.js" crossorigin="anonymous"></script>
+    <!-- CKeditor -->
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
