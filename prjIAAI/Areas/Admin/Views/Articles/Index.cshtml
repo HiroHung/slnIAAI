@@ -4,18 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+    <h2>網站內容管理</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@*<p>
+    @Html.ActionLink("新增網站內容", "Create")
+</p>*@
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ArticleContent)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Poster)
@@ -38,9 +35,6 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ArticleContent)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Poster)
         </td>
         <td>
@@ -53,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.UpdateDate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("編輯", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("詳細資料", "Details", new { id=item.Id }) |
+            @Html.ActionLink("刪除", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

@@ -14,7 +14,7 @@ namespace prjIAAI.Models
         public string Poster { get; set; }
 
         [Display(Name = "發布時間")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:g}")]
         public DateTime? InitDate { get; set; }
 
         [MaxLength(20)]
@@ -22,7 +22,7 @@ namespace prjIAAI.Models
         public string Updater { get; set; }
 
         [Display(Name = "最後更新時間")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:g}")]
         public DateTime? UpdateDate { get; set; }
 
         /// <summary>

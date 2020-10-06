@@ -65,6 +65,7 @@ namespace prjIAAI.Areas.Admin.Controllers
 
         //登出
         [AllowAnonymous]
+        [HttpPost]
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();

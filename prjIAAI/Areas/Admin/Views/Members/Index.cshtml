@@ -9,7 +9,7 @@
     <h2>系統管理者帳號管理</h2>
 
 <p>
-    @Html.ActionLink("新增管理者", "Create")
+    @Html.ActionLink("新增管理者帳號", "Create")
 </p>
 <table class="table">
     <tr>
@@ -68,7 +68,7 @@
             <td>
                 @Html.ActionLink("編輯", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("詳細資料", "Details", new { id = item.Id }) |
-                @Html.ActionLink("刪除", "Delete", new { id = item.Id })
+                @Html.ActionLink("刪除", "DeleteOK", new { id = item.Id },new{onclick= "return Confirm_Form()" })
             </td>
         </tr>
     }

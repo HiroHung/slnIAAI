@@ -59,7 +59,13 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/bdfc4d514c.js" crossorigin="anonymous"></script>
     <!-- CKeditor -->
-    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+<script>
+    function Confirm_Form() {
+        if (!confirm("您確定要刪除嗎?"))
+            return false;
+    }
+</script>
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

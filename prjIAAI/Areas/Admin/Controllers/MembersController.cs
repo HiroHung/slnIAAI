@@ -134,32 +134,31 @@ namespace prjIAAI.Areas.Admin.Controllers
                 {
                     member.Photo = Session["Photo"].ToString();
                 }
-                db.Entry(member).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(member).State = EntityState.Modified;
+                //db.SaveChanges();
+                member.Update();
                 return RedirectToAction("Index");
             }
             return View(member);
         }
 
-        // GET: Admin/Members/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Member member = db.Members.Find(id);
-            if (member == null)
-            {
-                return HttpNotFound();
-            }
-            return View(member);
-        }
+        //// GET: Admin/Members/Delete/5
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Member member = db.Members.Find(id);
+        //    if (member == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(member);
+        //}
 
         // POST: Admin/Members/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteOK(int id)
         {
             Member member = db.Members.Find(id);
             db.Members.Remove(member);

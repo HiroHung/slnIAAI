@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -49,13 +50,44 @@ namespace prjIAAI.Areas.Admin.Controllers
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Introduction,NewsContent,Image,Sticky,Highlight,Clicks,Poster,InitDate,Updater,UpdateDate")] News news)
+        //通過Html標籤驗證
+        [ValidateInput(false)]
+        public ActionResult Create([Bind(Include = "Id,Title,Introduction,NewsContent,Image,Sticky,Highlight,Clicks,Poster,InitDate,Updater,UpdateDate")] News news, HttpPostedFileBase Image)
         {
             if (ModelState.IsValid)
             {
-
+                //圖片上傳處理
+                //判斷資料夾是否存在，若無則建立資料夾
+                if (!Directory.Exists("~/FileUploads/"))
+                {
+                    Directory.CreateDirectory(Server.MapPath("~/FileUploads"));
+                }
+                //判斷檔案否存在
+                if (Image != null)
+                {
+                    //判斷是否為圖片類型檔案
+                    if (Image.ContentType.IndexOf("image", System.StringComparison.Ordinal) == -1)
+                    {
+                        TempData["message"] = "請選擇圖片類型檔案";
+                        return View(news);
+                    }
+                    else
+                    {
+                        news.Image = Utility.SaveUpImage(Image);
+                        Utility.GenerateThumbnailImage(Utility.SaveUpImage(Image), Image.InputStream,
+                            Server.MapPath("~/FileUploads"), "mini", 300);
+                    }
+                }
+                //else
+                //{
+                //    TempData["message"] = "請上傳圖片檔案";
+                //    return View(news);
+                //}
+                //System.Threading.Thread.Sleep(1000);
                 db.Newses.Add(news);
-                db.SaveChanges();
+                //db.SaveChanges();
+                //使用繼承BackendBase中的Function
+                news.Create(db,db.Newses);
                 return RedirectToAction("Index");
             }
 

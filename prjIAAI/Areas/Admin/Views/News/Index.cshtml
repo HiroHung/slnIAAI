@@ -4,21 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>最新消息管理</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("新增最新消息", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Introduction)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NewsContent)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Image)
@@ -51,12 +45,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Introduction)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NewsContent)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Image)

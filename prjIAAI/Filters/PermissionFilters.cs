@@ -43,6 +43,12 @@ namespace prjIAAI.Filters
             //取得UserData
             string strUserData = ((FormsIdentity)(HttpContext.Current.User.Identity)).Ticket.UserData;
             Member member = JsonConvert.DeserializeObject<Member>(strUserData);
+            
+            //判斷是否具有角色權限
+            if (member.Roles==null)
+            {
+                return "";
+            }
 
             //取得User所屬角色的權限字串，並將所有權限字串合併
             StringBuilder role = new StringBuilder("");

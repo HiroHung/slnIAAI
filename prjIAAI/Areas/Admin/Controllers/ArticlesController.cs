@@ -81,12 +81,14 @@ namespace prjIAAI.Areas.Admin.Controllers
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "Id,Title,ArticleContent,Poster,InitDate,Updater,UpdateDate")] Article article)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(article).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(article).State = EntityState.Modified;
+                //db.SaveChanges();
+                article.Update();
                 return RedirectToAction("Index");
             }
             return View(article);

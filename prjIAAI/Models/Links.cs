@@ -26,7 +26,7 @@ namespace prjIAAI.Models
         public string Image { set; get; }
 
         [Required(ErrorMessage = "請選擇{0}")]
-        [Display(Name = "是否展出")]
+        [Display(Name = "是否上架")]
         public ChooseType Display { set; get; }
 
         [Display(Name = "排序")]
